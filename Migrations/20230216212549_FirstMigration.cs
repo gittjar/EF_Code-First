@@ -5,7 +5,7 @@
 namespace EFCodeFirst.Migrations
 {
     /// <inheritdoc />
-    public partial class ekaMigrate : Migration
+    public partial class FirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,8 +33,8 @@ namespace EFCodeFirst.Migrations
                     Title = table.Column<string>(type: "TEXT", nullable: true),
                     Genre = table.Column<string>(type: "TEXT", nullable: true),
                     ExtraInformation = table.Column<string>(type: "TEXT", nullable: true),
-                    Year = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProductCompanyID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Year = table.Column<int>(type: "INTEGER", nullable: true),
+                    ProductCompanyID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,8 +43,7 @@ namespace EFCodeFirst.Migrations
                         name: "FK_Record_Producter_ProductCompanyID",
                         column: x => x.ProductCompanyID,
                         principalTable: "Producter",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateIndex(
