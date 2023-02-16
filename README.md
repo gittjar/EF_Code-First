@@ -1,3 +1,4 @@
+
 # Entity Framework (Code First program)
 
 In terminal (project folder) before running program use commands:
@@ -13,3 +14,4 @@ dotnet ef migrations add FirstMigration
 dotnet ef database update
 
 dotnet run
+
