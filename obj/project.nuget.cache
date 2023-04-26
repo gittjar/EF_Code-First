@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GU5MfAxM4gcST7VWo7qJJlL07LQmCMMwPOqFjcf8MJ5y/v/ZC7lS0JkBkA+vfqxWIxPOqKjYras0bec+SqcfRQ==",
+  "dgSpecHash": "z6+vutLpJDEIr7p/Vjb4LV5Wa1mzHUa2IfzsGKuI4aesavJeQJOTGbpXPdg6o7RK/IEPMZbl6+LNAH6wrxoMEg==",
   "success": true,
-  "projectFilePath": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst/EFCodeFirst.csproj",
+  "projectFilePath": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst--MusicRecordProgram/EFCodeFirst.csproj",
   "expectedPackageFiles": [
     "/Users/s2200692/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/s2200692/.nuget/packages/microsoft.data.sqlite.core/7.0.2/microsoft.data.sqlite.core.7.0.2.nupkg.sha512",
