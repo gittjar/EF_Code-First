@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst/EFCodeFirst.csproj": {}
+    "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst--MusicRecordProgram/EFCodeFirst.csproj": {}
   },
   "projects": {
-    "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst/EFCodeFirst.csproj": {
+    "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst--MusicRecordProgram/EFCodeFirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst/EFCodeFirst.csproj",
+        "projectUniqueName": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst--MusicRecordProgram/EFCodeFirst.csproj",
         "projectName": "EFCodeFirst",
-        "projectPath": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst/EFCodeFirst.csproj",
+        "projectPath": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst--MusicRecordProgram/EFCodeFirst.csproj",
         "packagesPath": "/Users/s2200692/.nuget/packages/",
-        "outputPath": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst/obj/",
+        "outputPath": "/Users/s2200692/ASP-net-harjoitukset/EFCodeFirst--MusicRecordProgram/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/s2200692/.nuget/NuGet/NuGet.Config"
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }
