@@ -1,119 +1,63 @@
-﻿using System;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using EFCodeFirst;
 
-using var db = new RecordCollectionContext();
-
-// Note: This sample requires the database to be created before running.
-Console.WriteLine($"Your database path: {db.DbPath}.");
-
-Console.WriteLine("Artist name:");
-string inputArtist = Console.ReadLine();
-
-Console.WriteLine("Record name:");
-string inputTitle = Console.ReadLine();
-
-Console.WriteLine("Genre:");
-string inputGenre = Console.ReadLine();
-
-Console.WriteLine("Extra information:");
-string inputExtraInfo = Console.ReadLine();
-
-int inputYear;
-Console.WriteLine("Publish year:");
-string iYear = Console.ReadLine();
-inputYear = Convert.ToInt32(iYear);
-
-Console.WriteLine("Label:");
-string inputProductCompany = Console.ReadLine();
-
-
-// Adds a label
-
-var pcompany01 = new ProductCompany
+public class Program
 {
-    Name = inputProductCompany
-};
-
-/* Use this if you want seed database.
- 
-var pcompany02 = new ProductCompany
-{
-    Name = "Elektra Records"
-};
-*/
-
-db.Producter.Add(pcompany01);
-
-// db.Producter.Add(pcompany02);
-
-
-// Adds some info
-db.Record.Add(new Record
-{
-
-    Artist = inputArtist,
-    Title = inputTitle,
-    Genre = inputGenre,
-    ExtraInformation = inputExtraInfo,
-    Year = inputYear,
-    ProductCompany = pcompany01
-});
-
-/* Use this if you want seed database.
- 
-db.Record.Add(new Record
-{
-
-    Artist = "Metallica",
-    Title = "The Black Album",
-    Genre = "Heavy metal",
-    ExtraInformation = "Sold over 30 m. record worldwide.",
-    Year = 1991,
-    ProductCompany = pcompany02
-});
-*/
-
-// save changes databaseen
-db.SaveChanges();
-
-Console.WriteLine("-----");
-
-// Gets and prints all records in database
-using (var context = new RecordCollectionContext())
-{
-    var records = context.Record
-      .Include(p => p.ProductCompany);
-    foreach (var record in records)
+    public static void Main(string[] args)
     {
-        var data = new StringBuilder();
-        data.AppendLine($"Artist: {record.ID}");
-        data.AppendLine($"Artist: {record.Artist}");
-        data.AppendLine($"Title: {record.Title}");
-        data.AppendLine($"Year: {record.Year}");
-        data.AppendLine($"Genre: {record.Genre}");
-        data.AppendLine($"Label: {record.ProductCompany?.Name}");
-        Console.WriteLine(data.ToString());
+        //lisätty edustaväri
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("Record Management");
+        Console.ForegroundColor = ConsoleColor.Green;
+
+        while (true)
+        {
+            Console.WriteLine(" Commands:");
+            Console.WriteLine(" [ 1 ] -> Add Record\n [ 2 ] -> Remove Record\n [ 3 ] -> Search Record" +
+                "\n [ 4 ] -> List All\n [ 0 ] -> Quit");
+            string question = Console.ReadLine();
+
+            if (question == "1")
+            {
+                Aanite AddRecord = new Aanite();
+                AddRecord.addRecord();
+                Console.WriteLine("Press any key to continue!");
+                Console.ReadKey();
+
+            }
+            else if (question == "2")
+            {
+                Aanite RemoveRecord = new Aanite();
+                RemoveRecord.removeRecord();
+                Console.WriteLine("Press any key to continue!");
+                Console.ReadKey();
+            }
+            else if (question == "3")
+            {
+                Aanite SearchRecord = new Aanite();
+                SearchRecord.searchRecord();
+                Console.WriteLine("Press any key to continue!");
+                Console.ReadKey();
+
+            }
+            else if (question == "4")
+            {
+                Aanite ListAll = new Aanite();
+                ListAll.printAllRecord();
+                Console.WriteLine("Press any key to continue!");
+                Console.ReadKey();
+            }
+            else if (question == "0")
+            {
+                Console.WriteLine("You go exit. Goodbye. See you later!");
+                Console.WriteLine("Press enter to quit.");
+                break;
+            }
+
+        }
     }
+
 }
 
-// levyn poisto by ID
-
-Console.WriteLine("Delete record?");
-Console.WriteLine("Kirjoita levyn (ID:nro) joka poistetaan, jätä tyhjäksi jos ei poisteta mitään:");
-
-int inputDelete;
-string iDelete = Console.ReadLine();
-inputDelete = Convert.ToInt32(iDelete);
-
-var deleterecord = new Record() { ID = inputDelete };
-db.Record.Attach(deleterecord);
-db.Record.Remove(deleterecord);
-db.SaveChanges();
-
-Console.WriteLine($"Poistettu onnistuneestu levy ID: {inputDelete}");
 
 
 
