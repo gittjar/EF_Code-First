@@ -93,6 +93,7 @@ namespace EFCodeFirst
         public void removeRecord()
         {
             // levyn poisto by ID
+            /*
             using var db = new RecordCollectionContext();
 
 
@@ -109,6 +110,33 @@ namespace EFCodeFirst
             db.SaveChanges();
 
             Console.WriteLine($"Poistettu onnistuneestu levy ID: {inputDelete}");
+            */
+            using var db = new RecordCollectionContext();
+            Console.Write("Enter the record ID to delete: ");
+            int inputDelete;
+            bool isValid = int.TryParse(Console.ReadLine(), out inputDelete);
+            if (!isValid || inputDelete <= 0)
+            {
+                Console.WriteLine("Invalid record ID. Operation cancelled.");
+                return;
+            }
+            var recordToDelete = db.Record.SingleOrDefault(r => r.ID == inputDelete);
+            if (recordToDelete == null)
+            {
+                Console.WriteLine($"Record with ID {inputDelete} not found. Operation cancelled.");
+                return;
+            }
+            Console.WriteLine($"Are you sure you want to delete record with ID {inputDelete}? (Y/N)");
+            string confirmation = Console.ReadLine()?.ToLower();
+            if (confirmation != "y")
+            {
+                Console.WriteLine("Operation cancelled.");
+                return;
+            }
+            db.Record.Remove(recordToDelete);
+            db.SaveChanges();
+            Console.WriteLine($"Record with ID {inputDelete} deleted successfully.");
+
         }
 
         public void printAllRecord()
